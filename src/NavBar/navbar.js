@@ -2,15 +2,10 @@ import React,{ Component } from 'react';
 import {Navbar,Nav,NavDropdown,Button,Form,FormControl} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './navbar.css'
-import {connect} from 'react-redux';
-class NavigationBar extends Component{
-  state={
-    UserName:null,
-    PassWord:null
-  }
 
-  render(){
-      // console.log(this.props.UserName+"-------------")
+class NavigationBar extends Component{
+
+    render(){
         return(
 <div>
 <Navbar bg="light" expand="sm"  sticky="top" id="NavBarEle">
@@ -23,19 +18,8 @@ class NavigationBar extends Component{
     </Form>
     
     </Navbar.Collapse>
-    {this.props.UserName?
-     <div>
-      <img src="https://i.dlpng.com/static/png/6758011_preview.png" width="40px" height="40px"></img>
-      <br></br>
-       {this.props.UserName }
-       <Button variant="outline-danger" onClick={()=>this.props.User(this.state)}>LogOut</Button>
-     </div>
-     :
-    <div>
-    <Button variant="outline-info" onClick={this.props.Login}>Login</Button>
-    <Button variant="outline-danger" onClick={this.props.SignUp}>SignUp</Button>
-    </div>
-    }     
+    <Button variant="outline-info" onClick={this.props.flag}>Login</Button>
+ 
  </Navbar>
    <Nav >
    <Nav.Link ><Link className="LinkEle" to="/">Shop</Link></Nav.Link>
@@ -54,21 +38,5 @@ class NavigationBar extends Component{
  </div>    )
     }
 }
-const StateHandler=(state)=>{
-    // console.log("SteteHandler"+state.UserName)
-  return{
-    UserName:state.UserName
-    // Password:state.PassWord
-  }
-}
 
-
-const ActionHandler=(action)=>{
-  return{
-    User:(event)=>{
-      action({type:event})
-    }
-
-  }
-}
-export default connect(StateHandler,ActionHandler)(NavigationBar);
+export default NavigationBar;

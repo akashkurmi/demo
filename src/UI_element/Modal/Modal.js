@@ -7,11 +7,9 @@ const Modal=(props)=>{
             <Backdrop show={props.show}></Backdrop>  
             <div className="Modal"
                  style={{
-                     transform:props.show ? 'translateY(0)':'translateY(-150vh)',
-                     top:props.top
+                     transform:props.show ? 'translateY(0)':'translateY(-100vh)'
                  }}>
-                     <Button variant="danger" onClick={props.modelClose} style={{float:'right'}}>X</Button>
-                     <hr></hr>
+                     <Button variant="danger" onClick={props.modelClose} style={{float:'right'}}>Cancel</Button>
       
                 {props.children}
             </div>

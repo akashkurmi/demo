@@ -13,14 +13,8 @@ class Items extends Component {
         })    
     })  
     }
-
-    componentDidUpdate(){
-        if(this.props.match.params.id){
-            console.log("data")
-        }
-    }
     render() {
-        // console.log(this.props.match.params.id);
+        console.log(this.props.match.params.id);
       
         return (
             <div>
